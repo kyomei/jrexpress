@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Usuario extends CI_Controller {
+class Site extends CI_Controller {
 
 	public function index()
 	{
@@ -9,15 +9,24 @@ class Usuario extends CI_Controller {
 	}
 
 	/**
-	 * Exibe página com formulário de cadastro
+	 * Exibe página com formulário de cadastro trabalhe conosco
 	 */
 	public function TrabalheConosco()
 	{
+
 		$data['title'] = 'Trabalhe Conosco - EMPRESA';
-		$data['description'] = ""
-		$this->load->view('trabalhe-conosco');
+		//$data['description'] = ""
+		$this->load->view('trabalhe-conosco', $data);
+		
 	}
 
+	/**
+	 * Exibe página para consultar a situação
+	 */
+	public function Consultar()
+	{
+
+	}
 	/**
 	 * Exibe página com formulário de login
 	 */
