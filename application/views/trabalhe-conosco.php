@@ -36,7 +36,7 @@
 
 	<div class="jumbotron text-center">
 		<h1>Trabalhe Conosco</h1>
-		<p>Faça parte da nossa equipe! TESTE AQUI</p>
+		<p>Faça parte da nossa equipe!</p>
 	</div>
 	<!-- Start .\ Section de cadastro -->
 	<section>
