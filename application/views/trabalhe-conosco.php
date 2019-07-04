@@ -54,7 +54,7 @@
 					</div>
 					<!-- Start .\ Possui habilitação -->
 					<div class="col-md-12 text-center d-block">
-						<label for="habilitacao">Você possui habilitação categoria A?</label><br />
+						<label for="habilitacao">Você possui habilitação <strong>categoria A</strong>?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="habilitacao_sim" name="habilitacao">
 							<label class="custom-control-label" for="habilitacao_sim">Sim</label>
@@ -68,7 +68,7 @@
 
 					<!-- Start .\ Tempo de habilitação -->
 					<div class="col-md-12 text-center">
-						<label for="tempo_habilitado">Você está habilitado na categoria A pelo menos á 2
+						<label for="tempo_habilitado">Você está habilitado na <strong>categoria A</strong> pelo menos á 2
 							anos?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="tempo_sim" name="tempo_habilitado">
@@ -97,7 +97,7 @@
 
 					<!-- Start .\ Possui Data nascimento -->
 					<div class="col-md-12">
-						<label for="idade21">Para trabalhar conosco, deve ter no mínimo 21 anos.</label><br />
+						<label for="idade21">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>git.</label><br />
 						<input type="date" class="form-control" id="nascimento" name="nascimento" style="width: 50%" required>
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
