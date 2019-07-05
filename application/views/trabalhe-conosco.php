@@ -41,7 +41,7 @@
 	<!-- Start .\ Section de cadastro -->
 	<section>
 		<div class="container">
-			<form id="formCadastro" class="validation">
+			<form id="formCadastro" method="POST">
 				<!-- Start .\ Habilitação -->
 				<div class="row">
 					<!-- Message alert -->
@@ -109,9 +109,7 @@
 					<div class="col-md-12 text-center">
 						<label for="nascimento">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>. Informe sua data de nascimento</label><br />
 						<div class="input-group mb-3" style="width: 270px; margin: 0 auto">
-							<input type="date" class="form-control" name="nascimento" required>
-							<div class="valid-feedback">Valid.</div>
-							<div class="invalid-feedback">Please fill out this field.</div>
+							<input type="date" class="form-control" name="nascimento">
 							<div class="input-group-append">
 								<button class="btn btn-success" type="button" id="verificarNascimento">Verificar</button> 
 							</div>
@@ -128,9 +126,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nome">Nome</label>
-								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="100" required>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
+								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150">
 							</div>
 						</div>
 						<!-- End .\ campo Nome -->
@@ -139,9 +135,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
-								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" required>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
+								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00">
 							</div>
 						</div>
 						<!-- End .\ Campo CPF -->
@@ -150,10 +144,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
-								<input type="text" class="form-control" id="cnh" placeholder="00000000000" name="cnh"
-									required>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
+								<input type="text" class="form-control" id="cnh" placeholder="00000000000" name="cnh">
 							</div>
 						</div>
 						<!-- End .\ Campo CNH -->
@@ -162,9 +153,7 @@
 						<div class="col-md-5">
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100" required>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
+								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100">
 							</div>
 						</div>
 						<!-- End .\ Campo E-mail -->
@@ -177,7 +166,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend1"><i class="fas fa-phone"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" required>
+									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1">
 								</div>
 							</div>
 						</div>
@@ -191,7 +180,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend2"><i class="fab fa-whatsapp"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" required>
+									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2">
 								</div>
 							</div>
 						</div>
@@ -218,8 +207,6 @@
 									<input type="radio" class="custom-control-input" id="Feminino" name="sexo" value="F">
 									<label class="custom-control-label" for="Feminino">Feminino</label>
 								</div>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Gênero -->
@@ -247,9 +234,7 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="filhos">Número de filhos</label>
-								<input type="number" class="form-control" min="0" max="20" id="filhos" value="0" name="filhos" required>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
+								<input type="number" class="form-control" min="0" max="20" id="filhos" value="0" name="filhos">
 							</div>
 						</div>
 						<!-- End .\ Campo Filhos -->
@@ -266,8 +251,6 @@
 									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="aluguel">
 									<label class="custom-control-label" for="moradialuguela_nao">Aluguel</label>
 								</div>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Moradia -->
@@ -294,8 +277,6 @@
 									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha" value="no">
 									<label class="custom-control-label" for="trabalha_nao">Não</label>
 								</div>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
@@ -316,8 +297,6 @@
 									<input type="checkbox" class="custom-control-input" id="turno3" name="turno">
 									<label class="custom-control-label" for="turno3">3º Turno das 18:00 ás 00:00</label>
 								</div>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Turno de trabalho -->
@@ -338,8 +317,6 @@
 									<input type="radio" class="custom-control-input" id="curso_nao_sim" name="curso" value="no_sim">
 									<label class="custom-control-label" for="curso_nao_sim">Não, mas tenho interesse em fazer</label>
 								</div>
-								<div class="valid-feedback">Valid.</div>
-								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
@@ -375,6 +352,7 @@
 	<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.messages_pt_PT.js')?>"></script>
+	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/app.js')?>"></script>
 </body>
 
