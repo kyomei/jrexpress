@@ -149,4 +149,9 @@ $(function(){
 
 		return quantos_anos < 0 ? 0 : quantos_anos;
 	}
+
+	// jQuery Validation - Regras
+	$('form.validation').validation({
+		
+	});
 });
