@@ -45,22 +45,18 @@
 				<!-- Start .\ Habilitação -->
 				<div class="row">
 					<!-- Message alert -->
-					<div class="col-12" id="alert-message">
-						<div class="alert alert-danger alert-dismissible">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-							<span class="message"><strong>Desculpe!</strong> Mas para trabalha conosco é necessário
-								possui um veículo.</span>
-						</div>
+					<div class="col-12" id="area-alert">
+						
 					</div>
 					<!-- Start .\ Possui habilitação -->
-					<div class="col-md-12 text-center d-block">
+					<div class="col-md-12 text-center">
 						<label for="habilitacao">Você possui habilitação <strong>categoria A</strong>?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="habilitacao_sim" name="habilitacao">
+							<input type="radio" class="custom-control-input" id="habilitacao_sim" name="habilitacao" value="yes">
 							<label class="custom-control-label" for="habilitacao_sim">Sim</label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="habilitacao_nao" name="habilitacao">
+							<input type="radio" class="custom-control-input" id="habilitacao_nao" name="habilitacao" value="no">
 							<label class="custom-control-label" for="habilitacao_nao">Não</label>
 						</div>
 					</div>
@@ -68,41 +64,60 @@
 
 					<!-- Start .\ Tempo de habilitação -->
 					<div class="col-md-12 text-center">
-						<label for="tempo_habilitado">Você está habilitado na <strong>categoria A</strong> pelo menos á 2
+						<label for="tempoHabilitado">Você está habilitado na <strong>categoria A</strong> a mais de 2
 							anos?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="tempo_sim" name="tempo_habilitado">
+							<input type="radio" class="custom-control-input" id="tempo_sim" name="tempoHabilitado" value="yes">
 							<label class="custom-control-label" for="tempo_sim">Sim</label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="tempo_nao" name="tempo_habilitado">
+							<input type="radio" class="custom-control-input" id="tempo_nao" name="tempoHabilitado" value="no">
 							<label class="custom-control-label" for="tempo_nao">Não</label>
 						</div>
 					</div>
 					<!-- End .\ Tempo de habilitação -->
 
+					<!-- Start .\ Atividade Remunerada CNH -->
+					<div class="col-md-12 text-center">
+						<label for="AtividadeRemuneradaCNH">Sua Habilitação possui <strong>Atividade remunerada?</strong></label><br />
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
+							<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
+							<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
+						</div>
+					</div>
+					<!-- End .\ Atividade Remunerada CNH -->
+
 					<!-- Start .\ Possui veículo -->
 					<div class="col-md-12 text-center">
-						<label for="habilitacao">Você possui uma moto para trabalhar?</label><br />
+						<label for="veiculo">Você possui uma moto para trabalhar?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="moto_sim" name="veiculo">
+							<input type="radio" class="custom-control-input" id="moto_sim" name="veiculo" value="yes">
 							<label class="custom-control-label" for="moto_sim">Sim</label>
 						</div>
 						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="moto_nao" name="veiculo">
+							<input type="radio" class="custom-control-input" id="moto_nao" name="veiculo" value="no">
 							<label class="custom-control-label" for="moto_nao">Não</label>
 						</div>
 					</div>
 					<!-- End .\ Possui veículo -->
 
-					<!-- Start .\ Possui Data nascimento -->
-					<div class="col-md-12">
-						<label for="idade21">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>git.</label><br />
-						<input type="date" class="form-control" id="nascimento" name="nascimento" style="width: 50%" required>
-									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Please fill out this field.</div>
+					<!-- Start .\ Data nascimento -->
+					<div class="col-md-12 text-center">
+						<label for="nascimento">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>. Informe sua data de nascimento</label><br />
+						<div class="input-group mb-3" style="width: 270px; margin: 0 auto">
+							<input type="date" class="form-control" name="nascimento" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button" id="verificarNascimento">Verificar</button> 
+							</div>
+						</div>
 					</div>
-					<!-- End .\ Possui Data nascimento -->
+					<!-- End .\ Data nascimento -->
 
 					<!-- Informações pessoais -->
 					<div class="col-12">
@@ -110,11 +125,10 @@
 						<hr />
 
 						<!-- Campo Nome -->
-						<div class="col-md-5">
+						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nome">Nome</label>
-								<input type="text" class="form-control" id="nome" placeholder="Seu nome completo"
-									name="nome" maxlength="100" required>
+								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="100" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -122,11 +136,10 @@
 						<!-- End .\ campo Nome -->
 
 						<!-- Campo CPF -->
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
-								<input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" name="cep"
-									required>
+								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -134,7 +147,7 @@
 						<!-- End .\ Campo CPF -->
 
 						<!-- Campo CNH -->
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
 								<input type="text" class="form-control" id="cnh" placeholder="00000000000" name="cnh"
@@ -146,11 +159,10 @@
 						<!-- End .\ Campo CNH -->
 
 						<!-- Campo E-mail -->
-						<div class="col-md-4">
+						<div class="col-md-5">
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com"
-									name="email" maxlength="100" required>
+								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -158,16 +170,28 @@
 						<!-- End .\ Campo E-mail -->
 
 						<!-- Campo Telefone -->
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="form-group">
-								<label for="contato">Contato</label>
+								<label for="telefone">Telefone <small class="text-muted">(Opcional)</small></label>
 								<div class="input-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text" id="inputGroupPrepend2"><i
-												class="fas fa-phone"></i></span>
+										<span class="input-group-text" id="inputGroupPrepend1"><i class="fas fa-phone"></i></span>
 									</div>
-									<input type="text" class="form-control" id="validationDefaultUsername"
-										placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" required>
+									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" required>
+								</div>
+							</div>
+						</div>
+						<!-- End .\ Campo Telefone -->	
+
+						<!-- Campo Celular -->
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="celular">Celular</label>
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="inputGroupPrepend2"><i class="fab fa-whatsapp"></i></span>
+									</div>
+									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" required>
 								</div>
 							</div>
 						</div>
@@ -187,13 +211,11 @@
 							<div class="form-group">
 								<label for="sexo">Sexo</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="Masculino" name="sexo"
-										value="Masculino">
+									<input type="radio" class="custom-control-input" id="Masculino" name="sexo" value="M">
 									<label class="custom-control-label" for="Masculino">Masculino</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="Feminino" name="sexo"
-										value="Feminino">
+									<input type="radio" class="custom-control-input" id="Feminino" name="sexo" value="F">
 									<label class="custom-control-label" for="Feminino">Feminino</label>
 								</div>
 								<div class="valid-feedback">Valid.</div>
@@ -203,10 +225,10 @@
 						<!-- End .\ Campo Gênero -->
 
 						<!-- Campo Estado Civil -->
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<div class="form-group">
-								<label for="estado_civil">Estado Civil</label>
-								<select class="form-control" id="estado_civil" name="estado_civil">
+								<label for="estadoCivil">Estado Civil</label>
+								<select class="form-control" name="estadoCivil">
 									<option disabled selected>Selecione</option>
 									<option>Solteiro (a)</option>
 									<option>Casado (a)</option>
@@ -222,11 +244,10 @@
 
 
 						<!-- Campo Filhos -->
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<div class="form-group">
 								<label for="filhos">Número de filhos</label>
-								<input type="number" class="form-control" min="0" max="20" id="filhos" value="0"
-									name="filhos" required>
+								<input type="number" class="form-control" min="0" max="20" id="filhos" value="0" name="filhos" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -236,16 +257,14 @@
 						<!--  Campo Moradia -->
 						<div class="col-md-3">
 							<div class="form-group">
-								<label for="sexo">Moradia</label><br />
+								<label for="moradia">Moradia</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="moradia_sim" name="moradia"
-										value="casa">
-									<label class="custom-control-label" for="moradia_sim">Casa própria</label>
+									<input type="radio" class="custom-control-input" id="casa" name="moradia" value="casa">
+									<label class="custom-control-label" for="casa">Casa própria</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="moradia_nao" name="moradia"
-										value="aluguel">
-									<label class="custom-control-label" for="moradia_nao">Aluguel</label>
+									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="aluguel">
+									<label class="custom-control-label" for="moradialuguela_nao">Aluguel</label>
 								</div>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
@@ -253,18 +272,26 @@
 						</div>
 						<!-- End .\ Campo Moradia -->
 
+						<div class="col-12 text-right">
+							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+						</div>
+					</div>
+					<!-- End .\ Informações pessoais -->
+
+					<!-- Disponibilidade -->
+					<div class="col-12">
+						<h2>Outras informações</h2>
+						<hr />
 						<!--  Campo Trabalha outro serviço -->
-						<div class="col-md-3">
+						<div class="col-md-5">
 							<div class="form-group">
-								<label for="sexo">Você trabalha em outro serviço?</label><br />
+								<label for="trabalha">Você trabalha atualmente?</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="trabalha_sim" name="trabalha"
-										value="casa">
+									<input type="radio" class="custom-control-input" id="trabalha_sim" name="trabalha" value="yes">
 									<label class="custom-control-label" for="trabalha_sim">Sim</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha"
-										value="aluguel">
+									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha" value="no">
 									<label class="custom-control-label" for="trabalha_nao">Não</label>
 								</div>
 								<div class="valid-feedback">Valid.</div>
@@ -273,19 +300,103 @@
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
 
+						<!-- Campo Turno de trabalho -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="turno">Quais horários você teria interesse em trabalha?</label><br />
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="turno1" name="turno">
+									<label class="custom-control-label" for="turno1">1º Turno das 11:00 ás 15:00</label>
+								</div>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="turno2" name="turno">
+									<label class="custom-control-label" for="turno2">2º Turno das 15:00 ás 18:00</label>
+								</div>
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="turno3" name="turno">
+									<label class="custom-control-label" for="turno3">3º Turno das 18:00 ás 00:00</label>
+								</div>
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
+							</div>
+						</div>
+						<!-- End .\ Campo Turno de trabalho -->
+
+						<!--  Campo Trabalha outro serviço -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="curso">Você já possui curso de moto frete?</label><br />
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="curso_sim" name="curso" value="yes">
+									<label class="custom-control-label" for="curso_sim">Sim</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="curso_nao" name="curso" value="no">
+									<label class="custom-control-label" for="curso_nao">Não</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="curso_nao_sim" name="curso" value="no_sim">
+									<label class="custom-control-label" for="curso_nao_sim">Não, mas tenho interesse em fazer</label>
+								</div>
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
+							</div>
+						</div>
+						<!-- End .\ Campo Trabalha outro serviço -->
+
+						<!--  Campo Anexo Documento -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="curso">Precisamos que envie uma foto uma foto de perfil</label><br />
+								<input type="file" class="form-control-file">
+							</div>
+						</div>
+						<!--  Campo Anexo Documento -->
 
 
 						<div class="col-12 text-right">
 							<button type="button" class="btn btn-success btn-prox">Próximo</button>
 						</div>
 					</div>
-					<!-- -->
+					<!-- End .\ Disponibilidade -->
+					<div class="col-12 d-flex justify-content-center mb-5">
+						<input type="submit" class="btn btn-primary mt-3" value="Finalizar cadastro" />
+					</div>
 				</div>
 			</form>
 			<!-- End .\ Formulário -->
 		</div>
 	</section>
 	<!-- End .\ Section de cadastro -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div class="container d-none">
 		<div class="row">
 			<div class="col">
