@@ -62,35 +62,6 @@
 					</div>
 					<!-- End .\ Possui habilitação -->
 
-					<!-- Start .\ Tempo de habilitação -->
-					<div class="col-md-12 text-center">
-						<label for="tempoHabilitado">Você está habilitado na <strong>categoria A</strong> a mais de 2
-							anos?</label><br />
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="tempo_sim" name="tempoHabilitado" value="yes">
-							<label class="custom-control-label" for="tempo_sim">Sim</label>
-						</div>
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="tempo_nao" name="tempoHabilitado" value="no">
-							<label class="custom-control-label" for="tempo_nao">Não</label>
-						</div>
-					</div>
-					<!-- End .\ Tempo de habilitação -->
-
-					<!-- Start .\ Atividade Remunerada CNH -->
-					<div class="col-md-12 text-center">
-						<label for="AtividadeRemuneradaCNH">Sua Habilitação possui <strong>Atividade remunerada?</strong></label><br />
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
-							<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
-						</div>
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
-							<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
-						</div>
-					</div>
-					<!-- End .\ Atividade Remunerada CNH -->
-
 					<!-- Start .\ Possui veículo -->
 					<div class="col-md-12 text-center">
 						<label for="veiculo">Você possui uma moto para trabalhar?</label><br />
@@ -127,6 +98,8 @@
 							<div class="form-group">
 								<label for="nome">Nome</label>
 								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150">
+								<div class="valid-feedback">Looks good!</div>
+								<div class="invalid-feedback">Please provide a valid city.</div>
 							</div>
 						</div>
 						<!-- End .\ campo Nome -->
@@ -135,7 +108,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
-								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00">
+								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14">
 							</div>
 						</div>
 						<!-- End .\ Campo CPF -->
@@ -144,7 +117,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
-								<input type="text" class="form-control" id="cnh" placeholder="00000000000" name="cnh">
+								<input type="text" class="form-control" name="cnh" placeholder="00000000000" maxlength="11">
 							</div>
 						</div>
 						<!-- End .\ Campo CNH -->
@@ -166,7 +139,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend1"><i class="fas fa-phone"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1">
+									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" maxlength="14">
 								</div>
 							</div>
 						</div>
@@ -180,7 +153,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend2"><i class="fab fa-whatsapp"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2">
+									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" maxlength="15">
 								</div>
 							</div>
 						</div>
@@ -234,7 +207,7 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="filhos">Número de filhos</label>
-								<input type="number" class="form-control" min="0" max="20" id="filhos" value="0" name="filhos">
+								<input type="number" class="form-control" min="0" max="20" value="0" name="filhos">
 							</div>
 						</div>
 						<!-- End .\ Campo Filhos -->
@@ -244,16 +217,71 @@
 							<div class="form-group">
 								<label for="moradia">Moradia</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="casa" name="moradia" value="casa">
+									<input type="radio" class="custom-control-input" id="casa" name="moradia" value="Casa própria">
 									<label class="custom-control-label" for="casa">Casa própria</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="aluguel">
+									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="Aluguel">
 									<label class="custom-control-label" for="moradialuguela_nao">Aluguel</label>
 								</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Moradia -->
+
+						<!-- Campo CEP -->
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="cep">CEP</label>
+								<input type="text" class="form-control" name="cep" placeholder="00000-000" maxlength="9">
+							</div>
+						</div>
+						<!-- End .\ Campo CEP -->
+						
+						<!-- Campo Logradouro -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="logradouro">Endereço</label>
+								<input type="text" class="form-control" name="endereco" placeholder="Endereço" readonly>
+							</div>
+						</div>
+						<!-- End .\ Campo Logradouro -->
+
+						<!-- Campo Número -->
+						<div class="col-md-2">
+							<div class="form-group">
+								<label for="numero">Nº</label>
+								<input type="text" class="form-control" name="numero" placeholder="Número">
+							</div>
+						</div>
+						<!-- End .\ Campo Número -->
+
+						<!-- Campo Bairro -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="bairro">Bairro</label>
+								<input type="text" class="form-control" name="bairro" placeholder="Bairro" readonly>
+							</div>
+						</div>
+						<!-- End .\ Campo Estado -->
+
+						<!-- Campo Cidade -->
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="cidade">Cidade</label>
+								<input type="text" class="form-control" name="cidade" placeholder="Cidade" readonly>
+							</div>
+						</div>
+						<!-- End .\ Campo Cidade -->
+
+						<!-- Campo Estado -->
+						<div class="col-md-2">
+							<div class="form-group">
+								<label for="estado">Estado</label>
+								<input type="text" class="form-control" name="estado" placeholder="Estado" readonly>
+							</div>
+						</div>
+						<!-- End .\ Campo Estado -->
+
 
 						<div class="col-12 text-right">
 							<button type="button" class="btn btn-success btn-prox">Próximo</button>
@@ -280,6 +308,20 @@
 							</div>
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
+
+						<!-- Start .\ Atividade Remunerada CNH -->
+						<div class="col-md-12">
+							<label for="AtividadeRemuneradaCNH">Sua Habilitação possui <strong>Atividade remunerada?</strong></label><br />
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
+								<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
+								<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
+							</div>
+						</div>
+						<!-- End .\ Atividade Remunerada CNH -->
 
 						<!-- Campo Turno de trabalho -->
 						<div class="col-md-5">
@@ -321,15 +363,105 @@
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
 
-						<!--  Campo Anexo Documento -->
-						<div class="col-md-5">
+						<!--  Foto de perfil -->
+						<div class="col-md-12">
 							<div class="form-group">
-								<label for="curso">Precisamos que envie uma foto uma foto de perfil</label><br />
-								<input type="file" class="form-control-file">
+								<p>Precisamos que envie uma foto de perfil <br />
+									- <i><small>Deve estar de frente e com rosto em primeiro plano - <a href="<?php echo base_url('assets/images/profile.jpg');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto de perfil">Veja exemplo</a></small></i><br />
+									- <i><small> Deve ser neutro, como nas fotos utilizadas em documentos oficiais (ex: RG, Carteira de Habilitação, Passaporte), sem objetos visíveis</small></i>
+								</p>
+								<input type="file" class="form-control-file" name="fotoPerfil">
+							</div>
+						</div><hr />
+						<!--  End .\ Foto de perfil -->
+
+						<!--  Foto de Comprovante de endereço -->
+						<div class="col-md-12">
+							<div class="form-group">
+								<p>Precisamos que envie uma foto de um comprovante de endereço em seu nome<br />
+									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/comprovante.png');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto de comprovante de endereço">Veja exemplo</a></small></i>
+								</p>
+								<input type="file" class="form-control-file" name="fotoComprovanteEndereco">
+							</div>
+						</div><hr />
+						<!--  End .\ Foto do comprovante de endereço -->
+
+						
+						<!--  Foto da Habilitação -->
+						<div class="col-md-12">
+							<div class="form-group">
+								<p>Precisamos que envie uma foto da sua habilitação<br />
+									- <i><small>Imagem deve está legível - <a href="<?php echo base_url('assets/images/cnh.jpg');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto da habilitação">Veja exemplo</a></small></i>
+								</p>
+								<input type="file" class="form-control-file" name="fotoHabilitacao">
 							</div>
 						</div>
-						<!--  Campo Anexo Documento -->
+						<!--  End .\ Foto da Habilitação -->
+						
+						<div class="col-12 text-right">
+							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+						</div>
+					</div>
+					<!-- End .\ Disponibilidade -->
 
+					<!-- Informações do veículo -->
+					<div class="col-12">
+						<h2>Informações do veículo</h2>
+						<hr />
+						<!--  Campo Proprietário do veículo -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="proprietario">Moto está em seu nome?</label><br />
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" class="custom-control-input" id="proprietario_sim" name="proprietario" value="yes">
+									<label class="custom-control-label" for="proprietario_sim">Sim</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" class="custom-control-input" id="proprietario_nao" name="proprietario" value="no">
+									<label class="custom-control-label" for="proprietario_nao">Não</label>
+								</div>
+							</div>
+						</div>
+						<!-- End .\ Campo Proprietário do veículo -->
+
+						<!-- Campo Placa -->
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="placa">Placa</label>
+								<input type="number" class="form-control" name="placa" placeholder="XXX-0000" maxlength="8">
+							</div>
+						</div>
+						<!-- End .\ Campo Placa -->
+
+						<!-- Campo Ano -->
+						<div class="col-md-2">
+							<div class="form-group">
+								<label for="ano">Ano</label>
+								<input type="number" class="form-control" name="ano" placeholder="0000" maxlength="4">
+							</div>
+						</div>
+						<!-- End .\ Campo Ano -->
+
+						<!-- Campo Modelo -->
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="modelo">Modelo</label>
+								<input type="text" class="form-control" name="modelo" placeholder="Modelo" maxlength="150">
+							</div>
+						</div>
+						<!-- End .\ Campo Modelo -->
+
+						
+						<!--  Foto do documento da moto -->
+						<div class="col-md-12">
+							<div class="form-group">
+								<p>Precisamos que envie uma foto do documento da moto.<br />
+									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/documento_moto.jpg');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto do documento da moto">Veja exemplo</a></small></i>
+								</p>
+								<input type="file" class="form-control-file" name="fotoDocumentoMoto">
+							</div>
+						</div><hr />
+						<!--  End .\ Foto do comprovante de endereço -->
 
 						<div class="col-12 text-right">
 							<button type="button" class="btn btn-success btn-prox">Próximo</button>
@@ -337,7 +469,7 @@
 					</div>
 					<!-- End .\ Disponibilidade -->
 					<div class="col-12 d-flex justify-content-center mb-5">
-						<input type="submit" class="btn btn-primary mt-3" value="Finalizar cadastro" />
+						<input type="submit" class="btn btn-primary mt-3 " value="Finalizar cadastro" />
 					</div>
 				</div>
 			</form>
@@ -346,12 +478,25 @@
 	</section>
 	<!-- End .\ Section de cadastro -->
 
-	</section>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- The Close Button -->
+		<span class="close">&times;</span>
+
+		<!-- Modal Content (The Image) -->
+		<img class="modal-content">
+
+		<!-- Modal Caption (Image Text) -->
+		<div id="caption"></div>
+	</div>
+
 	<script src="<?=base_url('assets/js/jquery.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/popper.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.messages_pt_PT.js')?>"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
 	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/app.js')?>"></script>
 </body>
