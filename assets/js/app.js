@@ -135,7 +135,7 @@ $(function(){
 
 	// Button proxima etapa
 	form.find('.btn-prox').bind('click', function(){
-		//nextElement($(this));
+		nextElement($(this));
 	});
 	// Oculta elemento atual e exibe o próximo bloco
 	function nextElement(e) {
@@ -210,10 +210,13 @@ $(function(){
 				maxlength: 100
 			},
 			telefone: {
+				maxlength: 14,
 				minlength: 14
 			},
 			celular: {
-				minlength: 15
+				required: true,
+				minlength: 15,
+				maxlength: 15
 			},
 			sexo: {
 				required: true
@@ -235,13 +238,137 @@ $(function(){
 				required: true
 			},
 			trabalha: {
-				required: true,
+				required: true
+			},
+			AtividadeRemuneradaCNH: {
+				required: true
 			},
 			turno: {
 				required: true,
+			},
+			curso: {
+				required: true
+			},
+			fotoPerfil: {
+				required: true,
+				extension: "png|jp?g|gif"
+			},
+			fotoComprovanteEndereco: {
+				required: true,
+				extension: "png|jp?g|gif"
+			},
+			fotoHabilitacao: {
+				required: true,
+				extension: "png|jp?g|gif"
+			},
+			proprietario: {
+				required: true,
+			},
+			placa: {
+				required: true,
+				minlength: 8
+			},
+			ano: {
+				required: true
+			},
+			modelo: {
+				required: true
+			},
+			fotoDocumentoMoto: {
+				required: true
 			}
-		}, errorPlacement: function(error, element) {
+		}, 
+		messages: {
+			nome: {
+				minlength: "Por favor, informe seu nome completo.",
+			},
+			cpf: {
+				minlength: "Por favor, informe CPF válido."
+			},
+			cnh: {
+				minlength: "Por favor, informe número da habilitação válido."
+			},
+			email: {
+				email: "Por favor, informe um e-mail válido."
+			},
+			fotoPerfil: {
+				required: "Por favor, envie uma foto de perfil."
+			},
+			fotoComprovanteEndereco: {
+				required: "Por favor, envie uma foto de comprovante de endereço."
+			},
+			fotoHabilitacao: {
+				required: "Por favor, envie uma foto da habilitação."
+			},
+			fotoDocumentoMoto: {
+				required: "Por favor, envie uma foto do documento do veículo."
+			}
+
+		},
+		errorPlacement: function(error, element) {
+			/*
+			console.log("error");
 			console.log(error);
+			console.log(element);
+			*/
+			if($(error)[0].innerText != "") {
+				$(element).hasClass('is-valid') ? $(element).removeClass('is-valid') : '';
+				$(element).addClass("is-invalid");
+				$(element).parent().find('.invalid-feedback').text($(error)[0].innerText);
+			}
+		
+		},
+		success: function (label, element) {
+			/*
+			console.log("success");
+			console.log(label);
+			console.log(element);		
+			*/
+			$(element).hasClass('is-invalid') ? $(element).removeClass('is-invalid') : '';
+			$(element).addClass("is-valid");
+
+			
+		},
+		highlight: function (element, errorClass, validClass) {
+			
+			// Quando a mensagem é fixa
+			console.log("highlight");
+			console.log(element);			
+			// console.log(errorClass);
+			// console.log(validClass);
+
+			// Preenchendo outros input do mesmo name com classe is-valid para ficar em vermelho quando não tiver selecionado nenhum
+			// Tipo Radio e Checkbox	
+			if ($(element).prop('type') === 'radio' || $(element).prop('type') === 'checkbox') {
+				var nameElement = $(element).attr('name');
+				var buscaElemento = "input[name=" + nameElement + "]";
+				$(buscaElemento).each(function(){
+					$(this).addClass("is-invalid");
+				});
+				if ($(element).prop('type') === 'checkbox'){
+					$(element).parent().parent().find('.invalid-feedback').text("Por favor, selecione alguma ou todas opções.").show();
+				} else {
+					$(element).parent().parent().find('.invalid-feedback').text("Por favor, selecione uma das opções.").show();
+				}
+				console.log($(element));
+			}
+			
+			/*
+			$(element).addClass( "is-invalid" ).removeClass( "is-valid" );
+			*/
+		},
+		unhighlight: function (element, errorClass, validClass) {
+			
+			// Quando a mensagem é fixa 
+			/*
+			console.log("unhighlight");
+			console.log(element);
+			console.log(errorClass);
+			console.log(validClass);*/
+			
+			/* 
+			$(element).addClass( "is-valid" ).removeClass( "is-invalid" );
+			*/
 		}
 
 	});
@@ -259,6 +386,7 @@ $(function(){
 		modal.find("#caption").text($(this).attr('title'));
 		modal.show();
 	});
+	// Ação fecha do modal
 	$(document).on('click', '.modal .close', function() {
 		$("#myModal").hide();
 	});

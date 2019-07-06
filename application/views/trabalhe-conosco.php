@@ -49,7 +49,7 @@
 						
 					</div>
 					<!-- Start .\ Possui habilitação -->
-					<div class="col-md-12 text-center">
+					<div class="col-12 text-center">
 						<label for="habilitacao">Você possui habilitação <strong>categoria A</strong>?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="habilitacao_sim" name="habilitacao" value="yes">
@@ -63,7 +63,7 @@
 					<!-- End .\ Possui habilitação -->
 
 					<!-- Start .\ Possui veículo -->
-					<div class="col-md-12 text-center">
+					<div class="col-12 text-center">
 						<label for="veiculo">Você possui uma moto para trabalhar?</label><br />
 						<div class="custom-control custom-radio custom-control-inline">
 							<input type="radio" class="custom-control-input" id="moto_sim" name="veiculo" value="yes">
@@ -77,7 +77,7 @@
 					<!-- End .\ Possui veículo -->
 
 					<!-- Start .\ Data nascimento -->
-					<div class="col-md-12 text-center">
+					<div class="col-12 text-center">
 						<label for="nascimento">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>. Informe sua data de nascimento</label><br />
 						<div class="input-group mb-3" style="width: 270px; margin: 0 auto">
 							<input type="date" class="form-control" name="nascimento">
@@ -97,9 +97,9 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nome">Nome</label>
-								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150">
-								<div class="valid-feedback">Looks good!</div>
-								<div class="invalid-feedback">Please provide a valid city.</div>
+								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150" autocomplete="off">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ campo Nome -->
@@ -109,6 +109,8 @@
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
 								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo CPF -->
@@ -118,6 +120,8 @@
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
 								<input type="text" class="form-control" name="cnh" placeholder="00000000000" maxlength="11">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo CNH -->
@@ -127,6 +131,8 @@
 							<div class="form-group">
 								<label for="email">E-mail</label>
 								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo E-mail -->
@@ -141,6 +147,8 @@
 									</div>
 									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" maxlength="14">
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Telefone -->	
@@ -155,6 +163,8 @@
 									</div>
 									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" maxlength="15">
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Telefone -->
@@ -168,8 +178,9 @@
 					<div class="col-12">
 						<h2>Informações pessoais</h2>
 						<hr />
+						
 						<!-- Campo Gênero -->
-						<div class="col-md-3">
+						<div class="col-md-3 col-sm-4">
 							<div class="form-group">
 								<label for="sexo">Sexo</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
@@ -180,6 +191,8 @@
 									<input type="radio" class="custom-control-input" id="Feminino" name="sexo" value="F">
 									<label class="custom-control-label" for="Feminino">Feminino</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Gênero -->
@@ -198,6 +211,8 @@
 									<option>União Estável</option>
 									<option>Outro</option>
 								</select>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Estado Civil -->
@@ -208,6 +223,8 @@
 							<div class="form-group">
 								<label for="filhos">Número de filhos</label>
 								<input type="number" class="form-control" min="0" max="20" value="0" name="filhos">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Filhos -->
@@ -224,6 +241,8 @@
 									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="Aluguel">
 									<label class="custom-control-label" for="moradialuguela_nao">Aluguel</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Moradia -->
@@ -233,6 +252,8 @@
 							<div class="form-group">
 								<label for="cep">CEP</label>
 								<input type="text" class="form-control" name="cep" placeholder="00000-000" maxlength="9">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo CEP -->
@@ -242,6 +263,8 @@
 							<div class="form-group">
 								<label for="logradouro">Endereço</label>
 								<input type="text" class="form-control" name="endereco" placeholder="Endereço" readonly>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Logradouro -->
@@ -251,6 +274,8 @@
 							<div class="form-group">
 								<label for="numero">Nº</label>
 								<input type="text" class="form-control" name="numero" placeholder="Número">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Número -->
@@ -260,6 +285,8 @@
 							<div class="form-group">
 								<label for="bairro">Bairro</label>
 								<input type="text" class="form-control" name="bairro" placeholder="Bairro" readonly>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Estado -->
@@ -269,6 +296,8 @@
 							<div class="form-group">
 								<label for="cidade">Cidade</label>
 								<input type="text" class="form-control" name="cidade" placeholder="Cidade" readonly>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Cidade -->
@@ -278,6 +307,8 @@
 							<div class="form-group">
 								<label for="estado">Estado</label>
 								<input type="text" class="form-control" name="estado" placeholder="Estado" readonly>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Estado -->
@@ -305,20 +336,26 @@
 									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha" value="no">
 									<label class="custom-control-label" for="trabalha_nao">Não</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Trabalha outro serviço -->
 
 						<!-- Start .\ Atividade Remunerada CNH -->
 						<div class="col-md-12">
-							<label for="AtividadeRemuneradaCNH">Sua Habilitação possui <strong>Atividade remunerada?</strong></label><br />
-							<div class="custom-control custom-radio custom-control-inline">
-								<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
-								<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
-							</div>
-							<div class="custom-control custom-radio custom-control-inline">
-								<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
-								<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
+							<div class="form-group">
+								<label for="AtividadeRemuneradaCNH">Você possui Atividade remunerada na sua habilitação?</label><br />
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
+									<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
+									<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
+								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>		
 							</div>
 						</div>
 						<!-- End .\ Atividade Remunerada CNH -->
@@ -339,11 +376,13 @@
 									<input type="checkbox" class="custom-control-input" id="turno3" name="turno">
 									<label class="custom-control-label" for="turno3">3º Turno das 18:00 ás 00:00</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Turno de trabalho -->
 
-						<!--  Campo Trabalha outro serviço -->
+						<!--  Campo Curso moto frete -->
 						<div class="col-md-5">
 							<div class="form-group">
 								<label for="curso">Você já possui curso de moto frete?</label><br />
@@ -359,9 +398,11 @@
 									<input type="radio" class="custom-control-input" id="curso_nao_sim" name="curso" value="no_sim">
 									<label class="custom-control-label" for="curso_nao_sim">Não, mas tenho interesse em fazer</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
-						<!-- End .\ Campo Trabalha outro serviço -->
+						<!-- End .\ Campo Curso moto frete -->
 
 						<!--  Foto de perfil -->
 						<div class="col-md-12">
@@ -371,6 +412,8 @@
 									- <i><small> Deve ser neutro, como nas fotos utilizadas em documentos oficiais (ex: RG, Carteira de Habilitação, Passaporte), sem objetos visíveis</small></i>
 								</p>
 								<input type="file" class="form-control-file" name="fotoPerfil">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div><hr />
 						<!--  End .\ Foto de perfil -->
@@ -382,6 +425,8 @@
 									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/comprovante.png');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto de comprovante de endereço">Veja exemplo</a></small></i>
 								</p>
 								<input type="file" class="form-control-file" name="fotoComprovanteEndereco">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div><hr />
 						<!--  End .\ Foto do comprovante de endereço -->
@@ -394,6 +439,8 @@
 									- <i><small>Imagem deve está legível - <a href="<?php echo base_url('assets/images/cnh.jpg');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto da habilitação">Veja exemplo</a></small></i>
 								</p>
 								<input type="file" class="form-control-file" name="fotoHabilitacao">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!--  End .\ Foto da Habilitação -->
@@ -420,6 +467,8 @@
 									<input type="radio" class="custom-control-input" id="proprietario_nao" name="proprietario" value="no">
 									<label class="custom-control-label" for="proprietario_nao">Não</label>
 								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Proprietário do veículo -->
@@ -429,6 +478,8 @@
 							<div class="form-group">
 								<label for="placa">Placa</label>
 								<input type="number" class="form-control" name="placa" placeholder="XXX-0000" maxlength="8">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Placa -->
@@ -438,6 +489,8 @@
 							<div class="form-group">
 								<label for="ano">Ano</label>
 								<input type="number" class="form-control" name="ano" placeholder="0000" maxlength="4">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Ano -->
@@ -447,6 +500,8 @@
 							<div class="form-group">
 								<label for="modelo">Modelo</label>
 								<input type="text" class="form-control" name="modelo" placeholder="Modelo" maxlength="150">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div>
 						<!-- End .\ Campo Modelo -->
@@ -459,6 +514,8 @@
 									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/documento_moto.jpg');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto do documento da moto">Veja exemplo</a></small></i>
 								</p>
 								<input type="file" class="form-control-file" name="fotoDocumentoMoto">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
 							</div>
 						</div><hr />
 						<!--  End .\ Foto do comprovante de endereço -->
@@ -469,7 +526,7 @@
 					</div>
 					<!-- End .\ Disponibilidade -->
 					<div class="col-12 d-flex justify-content-center mb-5">
-						<input type="submit" class="btn btn-primary mt-3 " value="Finalizar cadastro" />
+						<input type="submit" class="btn btn-primary mt-3 d-none" value="Finalizar cadastro" />
 					</div>
 				</div>
 			</form>
