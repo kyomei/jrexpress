@@ -383,8 +383,8 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			alert('ok 4');
-			console.log(form);
+			alert("Inscrição finalizada com sucesso, aguarde nosso contato!");
+			window.location.reload();
 		}
 	});
 
