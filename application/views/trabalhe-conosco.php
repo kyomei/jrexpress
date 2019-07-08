@@ -157,7 +157,7 @@
 						<!-- End .\ Campo Telefone -->
 
 						<!-- Button prev -->
-						<div class="col-12 text-right">
+						<div class="col-12 text-right mb-5">
 							<div class="text-right">
 								<button type="submit" class="btn btn-success btn-sm">Próximo</button>
 							</div>
@@ -308,7 +308,7 @@
 						<!-- End .\ Campo Estado -->
 
 						<!-- Button prev e next -->
-						<div class="col-12 text-right">
+						<div class="col-12 text-right mb-5">
 							<div class="btn-group btn-group-sm">
 								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
 								<button type="submit" class="btn btn-success">Próximo</button>
@@ -446,7 +446,7 @@
 						<!--  End .\ Foto da Habilitação -->
 						
 						<!-- Button prev e next -->
-						<div class="col-12 text-right">
+						<div class="col-12 text-right mb-5">
 							<div class="btn-group btn-group-sm">
 								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
 								<button type="submit" class="btn btn-success">Próximo</button>
