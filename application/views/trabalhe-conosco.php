@@ -41,55 +41,31 @@
 	<!-- Start .\ Section de cadastro -->
 	<section>
 		<div class="container">
-			<form id="formCadastro" method="POST">
-				<!-- Start .\ Habilitação -->
-				<div class="row">
-					<!-- Message alert -->
-					<div class="col-12" id="area-alert">
-						
+			<!-- Start .\ Habilitação -->
+			<div class="row">
+				<div class="col-12">
+					<strong>Condições para a Inscrição:</strong>
+					<ul>
+						<li>Ter 21 anos completos;</li>
+						<li>Possui uma moto para trabalho;</li>
+						<li>Estar habilitado, no mínimo, há dois anos na categoria A;</li>
+						<li>Não estar cumprindo pena de suspensão do direito de dirigir;</li>
+						<li>Não estar cumprindo pena de cassação da carteira nacional de habilitação (CNH), decorrente de crime de trânsito;</li>
+					</ul>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="termos" name="termos">
+						<label class="custom-control-label" for="termos">Declaro ter as condições necessárias para a inscrição</label>
 					</div>
-					<!-- Start .\ Possui habilitação -->
-					<div class="col-12 text-center">
-						<label for="habilitacao">Você possui habilitação <strong>categoria A</strong>?</label><br />
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="habilitacao_sim" name="habilitacao" value="yes">
-							<label class="custom-control-label" for="habilitacao_sim">Sim</label>
-						</div>
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="habilitacao_nao" name="habilitacao" value="no">
-							<label class="custom-control-label" for="habilitacao_nao">Não</label>
-						</div>
+					<!-- Botão Iniciar inscrição -->
+					<div class="col-12 d-flex justify-content-center mb-5">
+						<input type="button" class="btn btn-success btn-lg mt-3" id="inscricao" value="Iniciar Inscrição" disabled />
 					</div>
-					<!-- End .\ Possui habilitação -->
+					<!-- End .\ Botão Iniciar inscrição -->
+				</div>
 
-					<!-- Start .\ Possui veículo -->
-					<div class="col-12 text-center">
-						<label for="veiculo">Você possui uma moto para trabalhar?</label><br />
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="moto_sim" name="veiculo" value="yes">
-							<label class="custom-control-label" for="moto_sim">Sim</label>
-						</div>
-						<div class="custom-control custom-radio custom-control-inline">
-							<input type="radio" class="custom-control-input" id="moto_nao" name="veiculo" value="no">
-							<label class="custom-control-label" for="moto_nao">Não</label>
-						</div>
-					</div>
-					<!-- End .\ Possui veículo -->
-
-					<!-- Start .\ Data nascimento -->
-					<div class="col-12 text-center">
-						<label for="nascimento">Para trabalhar conosco, deve ter no <strong>mínimo 21 anos</strong>. Informe sua data de nascimento</label><br />
-						<div class="input-group mb-3" style="width: 270px; margin: 0 auto">
-							<input type="date" class="form-control" name="nascimento">
-							<div class="input-group-append">
-								<button class="btn btn-success" type="button" id="verificarNascimento">Verificar</button> 
-							</div>
-						</div>
-					</div>
-					<!-- End .\ Data nascimento -->
-
-					<!-- Informações pessoais -->
-					<div class="col-12">
+				<!-- Informações pessoais - ETAPA 1 -->
+				<div class="col-12">
+					<form id="formEtapa1" method="POST"> 
 						<h2>Informações pessoais</h2>
 						<hr />
 
@@ -103,6 +79,17 @@
 							</div>
 						</div>
 						<!-- End .\ campo Nome -->
+
+						<!-- Campo data nascimento -->
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="nascimento">Data nascimento</label>
+								<input type="text" class="form-control" name="nascimento" placeholder="__/__/____" maxlength="10" autocomplete="off">
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
+							</div>
+						</div>
+						<!-- End .\ campo data nascimento -->
 
 						<!-- Campo CPF -->
 						<div class="col-md-4">
@@ -169,13 +156,21 @@
 						</div>
 						<!-- End .\ Campo Telefone -->
 
+						<!-- Button prev -->
 						<div class="col-12 text-right">
-							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+							<div class="text-right">
+								<button type="submit" class="btn btn-success btn-sm">Próximo</button>
+							</div>
 						</div>
-					</div>
+						<!-- End .\ Button prev -->
+					</form>
+				</div>
 
-					<!-- Informações pessoais -->
-					<div class="col-12">
+				<!-- End .\ Informações pessoais - ETAPA 1 -->
+
+				<!-- Informações pessoais - ETAPA 2 -->
+				<div class="col-12">
+					<form id="formEtapa2" method="POST"> 
 						<h2>Informações pessoais</h2>
 						<hr />
 						
@@ -217,7 +212,6 @@
 						</div>
 						<!-- End .\ Campo Estado Civil -->
 
-
 						<!-- Campo Filhos -->
 						<div class="col-md-3">
 							<div class="form-group">
@@ -239,7 +233,7 @@
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
 									<input type="radio" class="custom-control-input" id="aluguel" name="moradia" value="Aluguel">
-									<label class="custom-control-label" for="moradialuguela_nao">Aluguel</label>
+									<label class="custom-control-label" for="aluguel">Aluguel</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
@@ -313,15 +307,21 @@
 						</div>
 						<!-- End .\ Campo Estado -->
 
-
+						<!-- Button prev e next -->
 						<div class="col-12 text-right">
-							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+							<div class="btn-group btn-group-sm">
+								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
+								<button type="submit" class="btn btn-success">Próximo</button>
+							</div>	
 						</div>
-					</div>
-					<!-- End .\ Informações pessoais -->
+						<!-- End .\ Button prev e next -->
+					</form>
+				</div>
+				<!-- End .\ Informações pessoais - ETAPA 2 -->
 
-					<!-- Disponibilidade -->
-					<div class="col-12">
+				<!-- Disponibilidade -->
+				<div class="col-12">
+					<form id="formEtapa3" method="POST"> 
 						<h2>Outras informações</h2>
 						<hr />
 						<!--  Campo Trabalha outro serviço -->
@@ -421,8 +421,8 @@
 						<!--  Foto de Comprovante de endereço -->
 						<div class="col-md-12">
 							<div class="form-group">
-								<p>Precisamos que envie uma foto de um comprovante de endereço em seu nome<br />
-									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/comprovante.png');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto de comprovante de endereço">Veja exemplo</a></small></i>
+								<p>Precisamos que envie uma foto de um comprovante de endereço no nome do interessado, com CEP<br />
+									- <i><small>Imagem deve ser legível - <a href="<?php echo base_url('assets/images/comprovante.png');?>" class="modal-image" title="Exemplo de como deve ser enviada a foto de comprovante de endereço no nome do interessado, com CEP">Veja exemplo</a></small></i>
 								</p>
 								<input type="file" class="form-control-file" name="fotoComprovanteEndereco">
 								<div class="valid-feedback">Válido.</div>
@@ -445,14 +445,21 @@
 						</div>
 						<!--  End .\ Foto da Habilitação -->
 						
+						<!-- Button prev e next -->
 						<div class="col-12 text-right">
-							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+							<div class="btn-group btn-group-sm">
+								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
+								<button type="submit" class="btn btn-success">Próximo</button>
+							</div>	
 						</div>
-					</div>
-					<!-- End .\ Disponibilidade -->
+						<!-- End .\ Button prev e next -->
+					</form>
+				</div>
+				<!-- End .\ Disponibilidade -->
 
-					<!-- Informações do veículo -->
-					<div class="col-12">
+				<!-- Informações do veículo -->
+				<div class="col-12">
+					<form id="formEtapa4" method="POST">
 						<h2>Informações do veículo</h2>
 						<hr />
 						<!--  Campo Proprietário do veículo -->
@@ -477,7 +484,7 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="placa">Placa</label>
-								<input type="number" class="form-control" name="placa" placeholder="XXX-0000" maxlength="8">
+								<input type="text" class="form-control" name="placa" placeholder="XXX-0000" maxlength="8">
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -520,17 +527,24 @@
 						</div><hr />
 						<!--  End .\ Foto do comprovante de endereço -->
 
-						<div class="col-12 text-right">
-							<button type="button" class="btn btn-success btn-prox">Próximo</button>
+						<!-- Button prev -->
+						<div class="col-12">
+							<div class="text-right">
+								<button type="button" class="btn btn-success btn-sm btn-prev">Voltar</button>
+							</div>
 						</div>
+						<!-- End .\ Button prev -->
+
+						<!-- Submit enviar formulário -->
+						<div class="col-12 d-flex justify-content-center mb-5">
+							<input type="submit" class="btn btn-danger btn-lg mt-3" value="Finalizar cadastro" />
+						</div>
+						<!-- End .\ Submit enviar formulário -->
 					</div>
 					<!-- End .\ Disponibilidade -->
-					<div class="col-12 d-flex justify-content-center mb-5">
-						<input type="submit" class="btn btn-primary mt-3 d-none" value="Finalizar cadastro" />
-					</div>
-				</div>
-			</form>
-			<!-- End .\ Formulário -->
+				</form>
+			</div>
+		<!-- End .\ Formulário -->
 		</div>
 	</section>
 	<!-- End .\ Section de cadastro -->
@@ -553,7 +567,7 @@
 	<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.messages_pt_PT.js')?>"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
+	<script src="<?=base_url('assets/js/jquery.validate.additional-methods.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/app.js')?>"></script>
 </body>

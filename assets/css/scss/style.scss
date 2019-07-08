@@ -50,17 +50,19 @@ input[type=number] {
 		line-height: inherit;
 		color: inherit;
 		white-space: normal;
+		color: blue;
 	  }
-	  .row > div{
-		  display: none;
-		  //border: 2px solid red;
-
-		  &:nth-child(2) {
-			  display: block;
-		  }
-	  }
+	  
   }
 
+  .row form {
+	display: none;
+	//border: 2px solid red;
+
+	&:nth-child(2) {
+		display: block;
+	}
+  }
   /*
   #myImg {
 	border-radius: 5px;
