@@ -73,7 +73,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nome">Nome</label>
-								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150" autocomplete="off">
+								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150" autocomplete="off" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -84,7 +84,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nascimento">Data nascimento</label>
-								<input type="text" class="form-control" name="nascimento" placeholder="__/__/____" maxlength="10" autocomplete="off">
+								<input type="text" class="form-control" name="nascimento" placeholder="__/__/____" maxlength="10" autocomplete="off" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -95,7 +95,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
-								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14">
+								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -106,7 +106,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
-								<input type="text" class="form-control" name="cnh" placeholder="00000000000" maxlength="11">
+								<input type="text" class="form-control" name="cnh" placeholder="00000000000" maxlength="11" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -117,7 +117,7 @@
 						<div class="col-md-5">
 							<div class="form-group">
 								<label for="email">E-mail</label>
-								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100">
+								<input type="email" class="form-control" name="email" placeholder="seuemail@exemplo.com" maxlength="100" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -148,7 +148,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend2"><i class="fab fa-whatsapp"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" maxlength="15">
+									<input type="tel" class="form-control" name="celular" placeholder="(XX) XXXXX-XXXX" aria-describedby="inputGroupPrepend2" maxlength="15" required>
 								</div>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
