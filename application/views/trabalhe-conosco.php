@@ -568,8 +568,8 @@
 	<script src="<?=base_url('assets/js/jquery.validate.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.messages_pt_PT.js')?>"></script>
 	<script src="<?=base_url('assets/js/jquery.validate.additional-methods.min.js')?>"></script>
-	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>"></script>
-	<script src="<?=base_url('assets/js/app.js')?>"></script>
+	<script src="<?=base_url('assets/js/jquery.mask.min.js?2')?>"></script>
+	<script src="<?=base_url('assets/js/app.js?2')?>"></script>
 </body>
 
 </html>
