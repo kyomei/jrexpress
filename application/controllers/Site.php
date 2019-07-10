@@ -15,8 +15,19 @@ class Site extends CI_Controller {
 	{
 
 		$data['title'] = 'Trabalhe Conosco - EMPRESA';
-		//$data['description'] = ""
+		$data['description'] = "Venha trabalhar conosco";
+		
 		$this->load->view('trabalhe-conosco', $data);
+		
+	}
+	/**
+	 * Registra o usuário no banco de dados
+	 */
+	public function  TrabalheConoscoInsert()
+	{
+
+		// Regras de validação
+		//$this->form_validation->set_rules('')
 		
 	}
 

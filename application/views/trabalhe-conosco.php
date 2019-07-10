@@ -65,7 +65,7 @@
 
 				<!-- Informações pessoais - ETAPA 1 -->
 				<div class="col-12">
-					<form id="formEtapa1" method="POST"> 
+					<form id="formEtapa1" method="POST" action="<?php echo base_url('Usuarios/registerEtapa1');?>"> 
 						<h2>Informações pessoais</h2>
 						<hr />
 

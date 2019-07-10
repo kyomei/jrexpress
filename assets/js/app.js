@@ -1,5 +1,8 @@
 $(function(){
 
+	// Base URL
+	var base_url = "http://[::1]/sites/jrexpress.com.br/";
+
 	// get Formulario
 	var form = $('form');
 
@@ -187,8 +190,33 @@ $(function(){
 			$(element).addClass("is-valid");
 		},
 		submitHandler: function (form) {
-			$(form).hide('slow');
-			$("#formEtapa2").show('slow');
+			//var data = $(form).serialize();
+					
+			//debugger;
+			var url = base_url + "Usuarios/registerEtapa1";
+			console.log(url);
+			form.submit();
+			/*
+			$.ajax({
+				url: url,
+				type: 'POST',
+				//datatype: 'json',
+				data: $(form).serialize(),
+				success: function(response) {
+					console.log("Enviado com sucesso!");
+					console.log(response);
+					$(form).hide('slow');
+					$("#formEtapa2").show('slow');
+				},
+				error: function(request, status, error) {
+					console.log("Oops! Ocorreu algum erro!");
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				}
+			});
+			*/
+			
 		}
 	});
 	
