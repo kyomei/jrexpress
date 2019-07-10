@@ -34,4 +34,4 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 ## Custom
 ##.gitignore
 user_guide
-#application/config/database.php
+application/config/database.php
