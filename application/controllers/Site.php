@@ -34,9 +34,17 @@ class Site extends CI_Controller {
 	/**
 	 * Exibe página para consultar a situação
 	 */
-	public function Consultar()
+	public function Consultar($cpf = null)
 	{
-
+		if(!empty($cpf)) {
+			echo $cpf;
+		} else {
+			echo "Consultar cpf";
+		}
+		$this->load->model('Usuario_model');
+		// $usuario = $this->Usuario_model->find($cpf);
+		$usuario = $this->Usuario_model->findByCPF($cpf);
+		print_r($usuario);
 	}
 	/**
 	 * Exibe página com formulário de login

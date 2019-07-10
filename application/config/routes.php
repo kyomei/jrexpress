@@ -57,4 +57,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'Site/Login';
 //$route['esqueci-senha'] = 'Site/EsqueciSenha';
 $route['consultar'] = 'Site/Consultar';
+$route['consultar/(:any)'] = 'Site/Consultar/$1';
 $route['trabalhe-conosco'] = 'Site/TrabalheConosco';

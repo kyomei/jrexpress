@@ -25,13 +25,13 @@ class Usuarios extends CI_Controller
 			
 			$formData = $this->input->post();
 			$this->load->model('Usuario_model');
-			$result = $this->Usuario_model->Save($formData);
+			$result = $this->Usuario_model->save($formData);
 			if($result) {
 				print_r($result);
 			} else {
 				echo "Oops, ocorreu algum erro ao adicionar usuário!";
 			}
         }
-
-    }
+	}
+	
 }
