@@ -73,7 +73,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nome">Nome</label>
-								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150" autocomplete="off" required>
+								<input type="text" class="form-control" name="nome" placeholder="Seu nome completo" maxlength="150" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -84,7 +84,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nascimento">Data nascimento</label>
-								<input type="text" class="form-control" name="nascimento" placeholder="__/__/____" maxlength="10" autocomplete="off" required>
+								<input type="tel" class="form-control" name="nascimento" placeholder="__/__/____" maxlength="10" autocomplete="off" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -95,7 +95,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cpf">Número do CPF</label>
-								<input type="text" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+								<input type="tel" class="form-control" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -106,7 +106,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cnh">Número da CNH</label>
-								<input type="text" class="form-control" name="cnh" placeholder="00000000000" maxlength="11" required>
+								<input type="number" class="form-control" name="cnh" placeholder="00000000000" maxlength="11" required>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -132,7 +132,7 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text" id="inputGroupPrepend1"><i class="fas fa-phone"></i></span>
 									</div>
-									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" maxlength="14">
+									<input type="tel" class="form-control" name="telefone" placeholder="(XX) XXXX-XXXX" aria-describedby="inputGroupPrepend1" maxlength="14"  autocomplete="off">
 								</div>
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
@@ -170,7 +170,7 @@
 
 				<!-- Informações pessoais - ETAPA 2 -->
 				<div class="col-12">
-					<form id="formEtapa2" method="POST"> 
+					<form id="formEtapa2" method="POST" action="<?php echo base_url('Usuarios/registerEtapa2');?>" autocomplete="off"> 
 						<h2>Informações pessoais</h2>
 						<hr />
 						
@@ -321,7 +321,7 @@
 
 				<!-- Disponibilidade -->
 				<div class="col-12">
-					<form id="formEtapa3" method="POST"> 
+					<form id="formEtapa3" method="POST" action="<?php echo base_url('Usuarios/registerEtapa3');?>"> 
 						<h2>Outras informações</h2>
 						<hr />
 						<!--  Campo Trabalha outro serviço -->
@@ -329,11 +329,11 @@
 							<div class="form-group">
 								<label for="trabalha">Você trabalha atualmente?</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="trabalha_sim" name="trabalha" value="yes">
+									<input type="radio" class="custom-control-input" id="trabalha_sim" name="trabalha" value="1">
 									<label class="custom-control-label" for="trabalha_sim">Sim</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha" value="no">
+									<input type="radio" class="custom-control-input" id="trabalha_nao" name="trabalha" value="0">
 									<label class="custom-control-label" for="trabalha_nao">Não</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>
@@ -345,13 +345,13 @@
 						<!-- Start .\ Atividade Remunerada CNH -->
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="AtividadeRemuneradaCNH">Você possui Atividade remunerada na sua habilitação?</label><br />
+								<label for="ativRemunerada">Você possui Atividade remunerada na sua habilitação?</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="AtividadeRemuneradaCNH" value="yes">
+									<input type="radio" class="custom-control-input" id="cnhRemunerada_sim" name="ativRemunerada" value="1">
 									<label class="custom-control-label" for="cnhRemunerada_sim">Sim</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="AtividadeRemuneradaCNH" value="no">
+									<input type="radio" class="custom-control-input" id="cnhRemunerada_nao" name="ativRemunerada" value="0">
 									<label class="custom-control-label" for="cnhRemunerada_nao">Não</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>
@@ -365,15 +365,15 @@
 							<div class="form-group">
 								<label for="turno">Quais horários você teria interesse em trabalha?</label><br />
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="turno1" name="turno">
+									<input type="checkbox" class="custom-control-input" id="turno1" name="turno[]" value="1">
 									<label class="custom-control-label" for="turno1">1º Turno das 11:00 ás 15:00</label>
 								</div>
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="turno2" name="turno">
+									<input type="checkbox" class="custom-control-input" id="turno2" name="turno[]" value="2">
 									<label class="custom-control-label" for="turno2">2º Turno das 15:00 ás 18:00</label>
 								</div>
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="turno3" name="turno">
+									<input type="checkbox" class="custom-control-input" id="turno3" name="turno[]" value="3">
 									<label class="custom-control-label" for="turno3">3º Turno das 18:00 ás 00:00</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>
@@ -387,15 +387,15 @@
 							<div class="form-group">
 								<label for="curso">Você já possui curso de moto frete?</label><br />
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="curso_sim" name="curso" value="yes">
+									<input type="radio" class="custom-control-input" id="curso_sim" name="curso" value="sim">
 									<label class="custom-control-label" for="curso_sim">Sim</label>
 								</div>
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="curso_nao" name="curso" value="no">
+									<input type="radio" class="custom-control-input" id="curso_nao" name="curso" value="nao">
 									<label class="custom-control-label" for="curso_nao">Não</label>
 								</div>
 								<div class="custom-control custom-radio">
-									<input type="radio" class="custom-control-input" id="curso_nao_sim" name="curso" value="no_sim">
+									<input type="radio" class="custom-control-input" id="curso_nao_sim" name="curso" value="nao_sim">
 									<label class="custom-control-label" for="curso_nao_sim">Não, mas tenho interesse em fazer</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>

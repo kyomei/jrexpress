@@ -1,7 +1,7 @@
 $(function(){
 
 	// Base URL
-	var base_url = "http://[::1]/sites/jrexpress.com.br/";
+	var base_url = "http://localhost/sites/jrexpress.com.br/";
 
 	// get Formulario
 	var form = $('form');
@@ -29,7 +29,10 @@ $(function(){
 	var trabalha = form.find('input[name=trabalha]');
 	var turno = form.find('input[name=turno]');
 	var curso = form.find('input[name=curso]');
-	var AtividadeRemuneradaCNH = form.find('input[name=AtividadeRemuneradaCNH]');
+	var ativRemunerada = form.find('input[name=ativRemunerada]');
+
+	// Preenchendo com valores vázios input para impedir autocompletar do browsers
+	//jQuery($('input[name=telefone]')).attr('autocomplete','off');
 
 	// Mascara de entrada nos campos
 	nascimento.mask("00/00/0000");
@@ -274,8 +277,9 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			$(form).hide('slow');
-			$("#formEtapa3").show('slow');
+			//$(form).hide('slow');
+			//$("#formEtapa3").show('slow');
+			form.submit();
 		}
 	});
 
@@ -284,27 +288,27 @@ $(function(){
 		rules: {
 			
 			trabalha: {
-				required: true
+				// required: true
 			},
-			AtividadeRemuneradaCNH: {
-				required: true
+			ativRemunerada: {
+				// required: true
 			},
 			turno: {
-				required: true,
+				// required: true,
 			},
 			curso: {
-				required: true
+				// required: true
 			},
 			fotoPerfil: {
-				required: true,
+				// required: true,
 				extension: "png|jpeg|jpg|gif"
 			},
 			fotoComprovanteEndereco: {
-				required: true,
+				// required: true,
 				extension: "png|jpeg|jpg|gif"
 			},
 			fotoHabilitacao: {
-				required: true,
+				// required: true,
 				extension: "png|jpeg|jpg|gif"
 			}
 			
@@ -353,8 +357,10 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			$(form).hide('slow');
-			$("#formEtapa4").show('slow');	
+			// $(form).hide('slow');
+			// $("#formEtapa4").show('slow');	
+			
+			form.submit();
 		}
 	});
 
@@ -411,8 +417,10 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			alert("Inscrição finalizada com sucesso, aguarde nosso contato!");
-			window.location.reload();
+			// alert("Inscrição finalizada com sucesso, aguarde nosso contato!");
+			// window.location.reload();
+			
+			form.submit();
 		}
 	});
 

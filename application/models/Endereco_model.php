@@ -1,28 +1,31 @@
 <?php
 if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Usuario_model extends CI_Model {
+class Endereco_model extends CI_Model {
 	
 	private $table;
+
 	function __construct() {
 		parent::__construct();
 		$this->load->database();
-		$this->table = 'usuarios';
+		$this->table = 'enderecos';
 	}
 
 	/**
-	 * Insere um usuário no banco de dados
+	 * Insere um novo endereço no banco de dados
 	 */
 	public function save($data) {
-		if($result = $this->findByCPF($data['cpf'])) {	
+		$this->db->insert('enderecos', $data);
+		/*
+		if($result = $this->find($data['cpf'])) {	
 			
 			// $this->db->where('id', $result->id);
 			// $this->db->update('usuarios', $data);
 
-			$this->edit($result->id, $data);
+			$this->editByCPF($result->cpf, $data);
 			$userID = $result->id;
 		} else {
-			$this->db->insert($this->table, $data);
+			$this->db->insert('usuarios', $data);
 			$userID = $this->db->insert_id();
 		}
 		if($userID) {
@@ -30,27 +33,21 @@ class Usuario_model extends CI_Model {
 		} else {
 			return false;
 		}
+		*/
 	}
 	/**
-	 * Atualiza os dados do usuário, através do id informado
-	 */
-	public function edit($id, $data) {
-		$this->db->where('id', $id);
-		$this->db->update($this->table, $data);
-	}
-	/**
-	 * Atualiza os dados do usuário, através do cpf informado
+	 * Atualiza os dados do usuário
 	 */
 	public function editByCPF($cpf, $data) {
 		$this->db->where('cpf', $cpf);
-		$this->db->update($this->table, $data);
+		$this->db->update('enderecos', $data);
 	}
 
 	/**
 	 * Busca um usuário no banco de dados, através do $id informado
 	 */
 	public function find($id) {
-		$this->db->select('*')->from($this->table)->where('id', $id);
+		$this->db->select('*')->from('usuarios')->where('id', $id);
 		$result = $this->db->get()->result();
 
 		if($result) {
@@ -64,7 +61,7 @@ class Usuario_model extends CI_Model {
 	 * Busca usuário no banco de dados, através do $cpf informado
 	 */
 	public function findByCPF($cpf) {
-		$this->db->select('*')->from($this->table)->where('cpf', $cpf);
+		$this->db->select('*')->from('usuarios')->where('cpf', $cpf);
 		$result = $this->db->get()->result();
 
 		if($result) {
