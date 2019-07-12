@@ -103,20 +103,19 @@ class Usuarios extends CI_Controller
 	public function registerEtapa3()
 	{	
 		// Regras de validação
-		/*
+		
 		$this->form_validation->set_rules('trabalha', 'Trabalha', 'required');
 		$this->form_validation->set_rules('ativRemunerada', 'Atividade Remunerada', 'required');
 		
 		// $this->form_validation->set_rules('turno', 'Turnos', 'required');
 		// $this->form_validation->set_rules('turno', 'Turnos', 'required');
 		
-		$this->form_validation->set_rules('curso', 'Curso', 'required');*/
-
+		$this->form_validation->set_rules('curso', 'Curso', 'required');
 		$this->form_validation->set_rules('fotoPerfil', 'Foto Perfil', 'required');
-		/*
+		
 		$this->form_validation->set_rules('fotoComprovanteEndereco', 'Foto Comprovante de Endereço', 'required');
 		$this->form_validation->set_rules('fotoHabilitacao', 'Foto Habilitação', 'required');
-		*/
+		
 
 		// Verifica se houve errors
 		if ($this->form_validation->run() == false) {
@@ -150,7 +149,10 @@ class Usuarios extends CI_Controller
 					$data = array('turno_id' => $value, 'usuario_id' => $this->session->userdata('user_id'));
 					$resultado = $this->Turno_Usuario_model->save($data);
 				}
-				
+				$caminho = 'usuarios/'.$this->session->userdata('user_cpf');
+				$this->upload_image('fotoPerfil', 'Foto de perfil', $caminho);
+				$this->upload_image('fotoComprovanteEndereco', 'Foto do comprovante de Endereço', $caminho);
+				$this->upload_image('fotoHabilitacao', 'Foto da habilitação', $caminho);
 			} else {
 				echo "Oops, ocorreu algum erro ao adicionar usuário!";
 			}
@@ -158,5 +160,47 @@ class Usuarios extends CI_Controller
 			
 		}
 
+	}
+
+	public function registerEtapa4()
+	{
+
+	}
+
+	public function upload_image($file_input, $filename, $caminho)
+	{
+		// 
+
+		// $path = './assets/upload/usuarios/'.$nome_pasta;
+
+		
+		$path = 'assets/upload/'.$caminho;
+		if (!is_dir($path))
+			mkdir($path, 0777, true);
+		
+		$config = array(
+			'file_name' => utf8_decode($filename),
+			'upload_path' => './'.$path.'/',
+			'allowed_types' => 'png|jpeg|jpg|gif',
+			'overwrite' => true
+		);
+		$this->load->library('upload');
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload($file_input)) {
+			// Carrega model imagem
+			$this->load->model('Imagem_model');
+			// Salva no banco de dados dados da imagem 
+			$data = array(
+				'usuario_id' => $this->session->userdata('user_id'),
+				'descricao' => $filename,
+				'url' => $path.'/'.str_replace(' ', '_', $filename)
+			);
+			$this->Imagem_model->save($data);
+			// echo "SUCESSO";
+		} else {
+			echo "ERROR<br>";
+			print_r($file_input);
+			echo $this->upload->display_errors();
+		}
 	}
 }

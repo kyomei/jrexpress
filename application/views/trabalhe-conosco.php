@@ -321,7 +321,7 @@
 
 				<!-- Disponibilidade -->
 				<div class="col-12">
-					<form id="formEtapa3" method="POST" action="<?php echo base_url('Usuarios/registerEtapa3');?>"> 
+					<form id="formEtapa3" method="POST" action="<?php echo base_url('Usuarios/registerEtapa3');?>" enctype="multipart/form-data"> 
 						<h2>Outras informações</h2>
 						<hr />
 						<!--  Campo Trabalha outro serviço -->
@@ -459,7 +459,7 @@
 
 				<!-- Informações do veículo -->
 				<div class="col-12">
-					<form id="formEtapa4" method="POST">
+					<form id="formEtapa4" method="POST" action="<?php echo base_url('Usuarios/registerEtapa4');?>" enctype="multipart/form-data">
 						<h2>Informações do veículo</h2>
 						<hr />
 						<!--  Campo Proprietário do veículo -->
