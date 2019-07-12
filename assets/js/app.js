@@ -30,16 +30,33 @@ $(function(){
 	var turno = form.find('input[name=turno]');
 	var curso = form.find('input[name=curso]');
 	var ativRemunerada = form.find('input[name=ativRemunerada]');
-
+	var psicotecnico = form.find('input[name=psicotecnico]');
+	var ano = form.find('input[name=ano]');
+	var placa = form.find('input[name=placa]');
+	
 	// Preenchendo com valores vázios input para impedir autocompletar do browsers
 	//jQuery($('input[name=telefone]')).attr('autocomplete','off');
 
 	// Mascara de entrada nos campos
 	nascimento.mask("00/00/0000");
 	cpf.mask("000.000.000-00");
+	cnh.mask("00000000000");
 	telefone.mask("(00) 0000-0000");
 	celular.mask("(00) 00000-0000");
 	cep.mask("00000-000");
+	ano.mask("0000");
+	placa.mask("AAA-0000", {
+		translation: {
+			'A': {
+				pattern: /[a-zA-Z]/
+			}
+		}
+	});
+
+	// Transforma em maiusculas os valores digitados no campo placa
+	placa.keyup(function(){
+		$(this).val($(this).val().toUpperCase());
+	});
 
 	// API BUSCA ENDEREÇO
 	cep.change(function(){
@@ -193,20 +210,15 @@ $(function(){
 			$(element).addClass("is-valid");
 		},
 		submitHandler: function (form) {
-			//var data = $(form).serialize();
-					
-			//debugger;
-			var url = base_url + "Usuarios/registerEtapa1";
-			console.log(url);
-			form.submit();
-			/*
+
+			// Enviando dados via ajax
 			$.ajax({
-				url: url,
+				url: $(form).attr('action'),
 				type: 'POST',
 				//datatype: 'json',
 				data: $(form).serialize(),
 				success: function(response) {
-					console.log("Enviado com sucesso!");
+					console.log("Epata 1 - Enviado com sucesso!");
 					console.log(response);
 					$(form).hide('slow');
 					$("#formEtapa2").show('slow');
@@ -218,8 +230,6 @@ $(function(){
 					console.log(error);
 				}
 			});
-			*/
-			
 		}
 	});
 	
@@ -277,9 +287,25 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			//$(form).hide('slow');
-			//$("#formEtapa3").show('slow');
-			form.submit();
+			// form.submit();
+			$.ajax({
+				url: $(form).attr('action'),
+				type: 'POST',
+				//datatype: 'json',
+				data: $(form).serialize(),
+				success: function(response) {
+					console.log("Epata 2 - Enviado com sucesso!");
+					console.log(response);
+					$(form).hide('slow');
+					$("#formEtapa3").show('slow');
+				},
+				error: function(request, status, error) {
+					console.log("Oops! Ocorreu algum erro!");
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				}
+			});
 		}
 	});
 
@@ -288,27 +314,30 @@ $(function(){
 		rules: {
 			
 			trabalha: {
-				// required: true
+				required: true
 			},
 			ativRemunerada: {
-				// required: true
+				required: true
+			},
+			psicotecnico: {
+				required: true
 			},
 			turno: {
-				// required: true,
+				required: true,
 			},
 			curso: {
-				// required: true
+				required: true
 			},
 			fotoPerfil: {
-				// required: true,
+				required: true,
 				extension: "png|jpeg|jpg|gif"
 			},
 			fotoComprovanteEndereco: {
-				// required: true,
+				required: true,
 				extension: "png|jpeg|jpg|gif"
 			},
 			fotoHabilitacao: {
-				// required: true,
+				required: true,
 				extension: "png|jpeg|jpg|gif"
 			}
 			
@@ -357,10 +386,29 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			// $(form).hide('slow');
-			// $("#formEtapa4").show('slow');	
+			//  form.submit();
+			 
+			$.ajax({
+				url: $(form).attr('action'),
+				type: 'POST',
+				//datatype: 'json',
+				data: new FormData(form),
+				contentType: false,
+				processData: false,
+				success: function(response) {
+					console.log("Epata 3 - Enviado com sucesso!");
+					console.log(response);
+					$(form).hide('slow');
+					$("#formEtapa4").show('slow');
+				},
+				error: function(request, status, error) {
+					console.log("Oops! Ocorreu algum erro!");
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				}
+			});
 			
-			form.submit();
 		}
 	});
 
@@ -417,10 +465,27 @@ $(function(){
 			}
 		},
 		submitHandler: function (form) {
-			// alert("Inscrição finalizada com sucesso, aguarde nosso contato!");
-			// window.location.reload();
-			
-			form.submit();
+			// form.submit();
+			$.ajax({
+				url: $(form).attr('action'),
+				type: 'POST',
+				data: new FormData(form),
+				contentType: false,
+				processData: false,
+				success: function(response) {
+					console.log("Epata 4 - Enviado com sucesso!");
+					console.log(response);
+					alert("Inscrição finalizada com sucesso, aguarde nosso contato!");
+					window.location.reload();
+					$(form).hide('slow');
+				},
+				error: function(request, status, error) {
+					console.log("Oops! Ocorreu algum erro!");
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				}
+			});
 		}
 	});
 

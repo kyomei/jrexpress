@@ -56,8 +56,8 @@ input[type=number] {
   }
 
   .row form {
-	//display: none;
-	border: 2px solid red;
+	display: none;
+	// border: 2px solid red;
 
 	&:nth-child(2) {
 		display: block;

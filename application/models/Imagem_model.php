@@ -62,7 +62,7 @@ class Imagem_model extends CI_Model {
 	}
 
 	/**
-	 * Busca usuário no banco de dados, através do $cpf informado
+	 * Busca imagem no banco de dados, através do $url informado
 	 */
 	public function findByURL($url) {
 		$this->db->select('*')->from($this->table)->where('url', $url);

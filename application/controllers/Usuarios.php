@@ -44,7 +44,7 @@ class Usuarios extends CI_Controller
 				$this->session->set_userdata('user_cpf',$result->cpf);
 				$this->session->set_userdata('user_id',$result->id);
 			} else {
-				echo "Oops, ocorreu algum erro ao adicionar usuário!";
+				echo "Oops, ocorreu algum erro no cadastro";
 			}
         }
 	}
@@ -76,12 +76,11 @@ class Usuarios extends CI_Controller
 				'estadoCivil' => $this->input->post('estadoCivil'),
 				'filhos' => $this->input->post('filhos'),
 				'moradia' => $this->input->post('moradia'),
-			);
-			$result = $this->Usuario_model->save($data);
-			if($result) {
+			); 
+			if($this->Usuario_model->save($data)) {
 				// Inserindo o endereço do usuário
 				$endereco = array(
-				'usuario_id' => $result->id,
+				'usuario_id' => $this->session->userdata('user_id'),
 				'logradouro' => $this->input->post('endereco'),
 				'numero' => $this->input->post('numero'),
 				'bairro' => $this->input->post('bairro'),
@@ -90,54 +89,48 @@ class Usuarios extends CI_Controller
 				);
 				$this->load->model('Endereco_model');
 				$this->Endereco_model->save($endereco);
-			exit;
 			} else {
-				echo "Oops, ocorreu algum erro ao adicionar usuário!";
+				echo "Oops, ocorreu algum erro no cadastro!";
 			}
-			
-			
 		}
 
 		echo $data['formErrors'];
 	}
 	public function registerEtapa3()
 	{	
-		// Regras de validação
 		
-		$this->form_validation->set_rules('trabalha', 'Trabalha', 'required');
+		// Regras de validação		
+		$this->form_validation->set_rules('trabalha', 'Trabalha', 'required');		
 		$this->form_validation->set_rules('ativRemunerada', 'Atividade Remunerada', 'required');
-		
-		// $this->form_validation->set_rules('turno', 'Turnos', 'required');
-		// $this->form_validation->set_rules('turno', 'Turnos', 'required');
-		
-		$this->form_validation->set_rules('curso', 'Curso', 'required');
-		$this->form_validation->set_rules('fotoPerfil', 'Foto Perfil', 'required');
-		
-		$this->form_validation->set_rules('fotoComprovanteEndereco', 'Foto Comprovante de Endereço', 'required');
-		$this->form_validation->set_rules('fotoHabilitacao', 'Foto Habilitação', 'required');
+		$this->form_validation->set_rules('psicotecnico', 'Exame psicotécnico', 'required');
+		$this->form_validation->set_rules('curso', 'Curso', 'required');		
+		if (empty($_FILES['fotoPerfil']['name']))
+			$this->form_validation->set_rules('fotoPerfil', 'Foto Perfil', 'required');
+		if (empty($_FILES['fotoComprovanteEndereco']['name']))
+			$this->form_validation->set_rules('fotoComprovanteEndereco', 'Foto Comprovante de Endereço', 'required');
+		if (empty($_FILES['fotoHabilitacao']['name']))
+			$this->form_validation->set_rules('fotoHabilitacao', 'Foto Habilitação', 'required');
 		
 
 		// Verifica se houve errors
 		if ($this->form_validation->run() == false) {
 			$formErrors = validation_errors();
-			echo $formErrors;
+			print_r($formErrors);
 			echo "error";
 			exit;
 		} else {
 			$data['formErrors'] = null;
-			// print_r($this->input->post());
-			// Inserindo cadastro do usuário
-			
+
+			// Inserindo cadastro do usuário			
 			$data = array(
 				'id' => $this->session->userdata('user_id'),
 				'cpf' => $this->session->userdata('user_cpf'),
 				'trabalhaAtualmente' => $this->input->post('trabalha'),
 				'ativRemunerada' => $this->input->post('ativRemunerada'),
+				'psicotecnico' => $this->input->post('psicotecnico'),
 				'curso' => $this->input->post('curso'),
 			);
-			$result = $this->Usuario_model->save($data);
-			
-			if($result) {
+			if($this->Usuario_model->save($data)) {
 				// Carrega model Turno_Usuario
 				$this->load->model('Turno_Usuario_model');
 				
@@ -149,14 +142,14 @@ class Usuarios extends CI_Controller
 					$data = array('turno_id' => $value, 'usuario_id' => $this->session->userdata('user_id'));
 					$resultado = $this->Turno_Usuario_model->save($data);
 				}
+				// Upload das imagens
 				$caminho = 'usuarios/'.$this->session->userdata('user_cpf');
 				$this->upload_image('fotoPerfil', 'Foto de perfil', $caminho);
 				$this->upload_image('fotoComprovanteEndereco', 'Foto do comprovante de Endereço', $caminho);
 				$this->upload_image('fotoHabilitacao', 'Foto da habilitação', $caminho);
 			} else {
-				echo "Oops, ocorreu algum erro ao adicionar usuário!";
+				echo "Oops, ocorreu algum erro no cadastro!";
 			}
-			
 			
 		}
 
@@ -164,16 +157,60 @@ class Usuarios extends CI_Controller
 
 	public function registerEtapa4()
 	{
+		// Regras de validação
+				
+		$this->form_validation->set_rules('proprietario', 'Proprietário da moto', 'required');
+		$this->form_validation->set_rules('placa', 'Placa', 'required');
+		$this->form_validation->set_rules('ano', 'Ano', 'required');
+		$this->form_validation->set_rules('modelo', 'Modelo', 'required');
+		
+		if (empty($_FILES['fotoDocumentoMoto']['name']))
+			$this->form_validation->set_rules('fotoDocumentoMoto', 'Foto do documento da moto', 'required');
+		
+		// Verifica se houve errors
+		if ($this->form_validation->run() == false) {
+			$formErrors = validation_errors();
+			echo $formErrors;
+			echo "error";
+			exit;
+		} else {
+			$data['formErrors'] = null;
+			
+			// Inserindo cadastro do usuário			
+			$data = array(
+				'id' => $this->session->userdata('user_id'),
+				'cpf' => $this->session->userdata('user_cpf'),
+				'veiculoProprio' => $this->input->post('proprietario'),
+			);
+			if ($this->Usuario_model->save($data)) {
 
+				// Carrega model Veiculo_model
+				$this->load->model('Veiculo_model');
+
+				// Cadastrando veiculo no banco de dados
+				$veiculo = array(
+					'usuario_id' => $this->session->userdata('user_id'),
+					'placa' => $this->input->post('placa'),
+					'ano' => $this->input->post('ano'),
+					'modelo' => $this->input->post('modelo'),
+				);
+				if ($this->Veiculo_model->save($veiculo)) {
+					// Upload da imagem
+					$caminho = 'usuarios/'.$this->session->userdata('user_cpf');
+					$this->upload_image('fotoDocumentoMoto', 'Foto do documento da moto', $caminho);
+				}
+			} else {
+				echo "Oops, ocorreu algum erro no cadastro!";
+			}
+			
+			
+		}
 	}
 
 	public function upload_image($file_input, $filename, $caminho)
 	{
-		// 
-
 		// $path = './assets/upload/usuarios/'.$nome_pasta;
 
-		
 		$path = 'assets/upload/'.$caminho;
 		if (!is_dir($path))
 			mkdir($path, 0777, true);
@@ -187,19 +224,19 @@ class Usuarios extends CI_Controller
 		$this->load->library('upload');
 		$this->upload->initialize($config);
 		if ($this->upload->do_upload($file_input)) {
+			$upload_data = $this->upload->data();
 			// Carrega model imagem
 			$this->load->model('Imagem_model');
 			// Salva no banco de dados dados da imagem 
 			$data = array(
 				'usuario_id' => $this->session->userdata('user_id'),
 				'descricao' => $filename,
-				'url' => $path.'/'.str_replace(' ', '_', $filename)
+				'url' => $path.'/'.str_replace(' ', '_', $filename.$upload_data['file_ext'])
 			);
 			$this->Imagem_model->save($data);
 			// echo "SUCESSO";
 		} else {
-			echo "ERROR<br>";
-			print_r($file_input);
+			// echo "ERROR<br>";
 			echo $this->upload->display_errors();
 		}
 	}

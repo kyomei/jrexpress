@@ -308,10 +308,10 @@
 						<!-- End .\ Campo Estado -->
 
 						<!-- Button prev e next -->
-						<div class="col-12 text-right mb-5">
-							<div class="btn-group btn-group-sm">
-								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
-								<button type="submit" class="btn btn-success">Próximo</button>
+						<div class="col-12 mb-5">
+							<div class="text-right">
+								<button type="button" class="btn btn-sm btn-secondary btn-prev">Voltar</button>
+								<button type="submit" class="btn btn-sm btn-success">Próximo</button>
 							</div>	
 						</div>
 						<!-- End .\ Button prev e next -->
@@ -319,7 +319,7 @@
 				</div>
 				<!-- End .\ Informações pessoais - ETAPA 2 -->
 
-				<!-- Disponibilidade -->
+				<!-- Informações pessoais - ETAPA 3 -->
 				<div class="col-12">
 					<form id="formEtapa3" method="POST" action="<?php echo base_url('Usuarios/registerEtapa3');?>" enctype="multipart/form-data"> 
 						<h2>Outras informações</h2>
@@ -359,6 +359,28 @@
 							</div>
 						</div>
 						<!-- End .\ Atividade Remunerada CNH -->
+
+						<!--  Campo Exame psicotécnico -->
+						<div class="col-md-5">
+							<div class="form-group">
+								<label for="psicotecnico">Você já fez exame psicotécnico?</label><br />
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="psicotecnico_sim" name="psicotecnico" value="sim">
+									<label class="custom-control-label" for="psicotecnico_sim">Sim</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="psicotecnico_nao" name="psicotecnico" value="nao">
+									<label class="custom-control-label" for="psicotecnico_nao">Não</label>
+								</div>
+								<div class="custom-control custom-radio">
+									<input type="radio" class="custom-control-input" id="psicotecnico_nao_sim" name="psicotecnico" value="nao_sim">
+									<label class="custom-control-label" for="psicotecnico_nao_sim">Não, mas tenho interesse em fazer</label>
+								</div>
+								<div class="valid-feedback">Válido.</div>
+								<div class="invalid-feedback">Message error</div>
+							</div>
+						</div>
+						<!-- End .\ Campo Exame psicotécnico -->
 
 						<!-- Campo Turno de trabalho -->
 						<div class="col-md-5">
@@ -446,18 +468,18 @@
 						<!--  End .\ Foto da Habilitação -->
 						
 						<!-- Button prev e next -->
-						<div class="col-12 text-right mb-5">
-							<div class="btn-group btn-group-sm">
-								<button type="button" class="btn btn-sm btn-success btn-prev">Voltar</button>
-								<button type="submit" class="btn btn-success">Próximo</button>
+						<div class="col-12 mb-5">
+							<div class="text-right">
+								<button type="button" class="btn btn-sm btn-secondary btn-prev">Voltar</button>
+								<button type="submit" class="btn btn-sm btn-success">Próximo</button>
 							</div>	
 						</div>
 						<!-- End .\ Button prev e next -->
 					</form>
 				</div>
-				<!-- End .\ Disponibilidade -->
+				<!-- End .\ Informações pessoais - ETAPA 3 -->
 
-				<!-- Informações do veículo -->
+				<!-- Informações pessoais - ETAPA 4 -->
 				<div class="col-12">
 					<form id="formEtapa4" method="POST" action="<?php echo base_url('Usuarios/registerEtapa4');?>" enctype="multipart/form-data">
 						<h2>Informações do veículo</h2>
@@ -467,11 +489,11 @@
 							<div class="form-group">
 								<label for="proprietario">Moto está em seu nome?</label><br />
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="proprietario_sim" name="proprietario" value="yes">
+									<input type="radio" class="custom-control-input" id="proprietario_sim" name="proprietario" value="1">
 									<label class="custom-control-label" for="proprietario_sim">Sim</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="proprietario_nao" name="proprietario" value="no">
+									<input type="radio" class="custom-control-input" id="proprietario_nao" name="proprietario" value="0">
 									<label class="custom-control-label" for="proprietario_nao">Não</label>
 								</div>
 								<div class="valid-feedback">Válido.</div>
@@ -530,7 +552,7 @@
 						<!-- Button prev -->
 						<div class="col-12">
 							<div class="text-right">
-								<button type="button" class="btn btn-success btn-sm btn-prev">Voltar</button>
+								<button type="button" class="btn btn-secondary btn-sm btn-prev">Voltar</button>
 							</div>
 						</div>
 						<!-- End .\ Button prev -->
@@ -541,7 +563,7 @@
 						</div>
 						<!-- End .\ Submit enviar formulário -->
 					</div>
-					<!-- End .\ Disponibilidade -->
+					<!-- End .\ Informações pessoais - ETAPA 3 -->
 				</form>
 			</div>
 		<!-- End .\ Formulário -->
