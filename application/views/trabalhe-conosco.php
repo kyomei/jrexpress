@@ -5,7 +5,9 @@
 	<title><?=$title?></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="<?=base_url('assets/css/bootstrap.min.css');?>">
 	<link rel="stylesheet" href="<?=base_url('assets/css/style.min.css');?>">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 		integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -245,7 +247,7 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<label for="cep">CEP</label>
-								<input type="text" class="form-control" name="cep" placeholder="00000-000" maxlength="9">
+								<input type="tel" class="form-control" name="cep" placeholder="00000-000" maxlength="9">
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>
@@ -267,7 +269,7 @@
 						<div class="col-md-2">
 							<div class="form-group">
 								<label for="numero">Nº</label>
-								<input type="text" class="form-control" name="numero" placeholder="Número">
+								<input type="tel" class="form-control" name="numero" placeholder="Número">
 								<div class="valid-feedback">Válido.</div>
 								<div class="invalid-feedback">Message error</div>
 							</div>

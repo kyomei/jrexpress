@@ -62,7 +62,7 @@ $(function(){
 	cep.change(function(){
 		var cep_code = $(this).val();
 		if (cep_code.length <= 0) return;
-		$.get("http://apps.widenet.com.br/busca-cep/api/cep.json", {code: cep_code},
+		$.get("https://apps.widenet.com.br/busca-cep/api/cep.json", {code: cep_code},
 			function(result) {
 				if(result.status != 1) {
 					alert(result.message || "Houve um erro desconhecido");
@@ -387,7 +387,11 @@ $(function(){
 		},
 		submitHandler: function (form) {
 			//  form.submit();
-			 
+			var element = $(this);
+		  	var loadingText = '<span class="spinner-border spinner-border-sm"></span>Aguarde...';
+			$(element).attr('disabled', 'disabled');
+			$(element).html(loadingText);
+			
 			$.ajax({
 				url: $(form).attr('action'),
 				type: 'POST',
@@ -398,6 +402,8 @@ $(function(){
 				success: function(response) {
 					console.log("Epata 3 - Enviado com sucesso!");
 					console.log(response);
+					$(element).removeAttr('disabled');
+					$(element).html('Próximo');
 					$(form).hide('slow');
 					$("#formEtapa4").show('slow');
 				},
