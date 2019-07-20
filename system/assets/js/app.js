@@ -126,10 +126,8 @@ $(function(){
 
 	// Ação do botão iniciar inscrição
 	$("#inscricao").bind('click', function(){
-		/*
 		$(this).parent().parent().hide('slow');
 		$("#formEtapa1").show('slow');
-		*/
 	});
 
 	// jQuery Validate - Regras ETAPA 1
@@ -389,9 +387,11 @@ $(function(){
 		},
 		submitHandler: function (form) {
 			//  form.submit();
-						
-			$("#loaderFundo").fadeIn("slow");
-
+			var element = $(this);
+		  	var loadingText = '<span class="spinner-border spinner-border-sm"></span>Aguarde...';
+			$(element).attr('disabled', 'disabled');
+			$(element).html(loadingText);
+			
 			$.ajax({
 				url: $(form).attr('action'),
 				type: 'POST',
@@ -400,10 +400,10 @@ $(function(){
 				contentType: false,
 				processData: false,
 				success: function(response) {
-					
-					$("#loaderFundo").fadeOut("slow");
 					console.log("Epata 3 - Enviado com sucesso!");
 					console.log(response);
+					$(element).removeAttr('disabled');
+					$(element).html('Próximo');
 					$(form).hide('slow');
 					$("#formEtapa4").show('slow');
 				},
@@ -472,8 +472,6 @@ $(function(){
 		},
 		submitHandler: function (form) {
 			// form.submit();
-			
-			$("#loaderFundo").fadeIn("slow");
 			$.ajax({
 				url: $(form).attr('action'),
 				type: 'POST',
@@ -481,8 +479,6 @@ $(function(){
 				contentType: false,
 				processData: false,
 				success: function(response) {
-					
-				$("#loaderFundo").fadeOut("slow");
 					console.log("Epata 4 - Enviado com sucesso!");
 					console.log(response);
 					alert("Inscrição finalizada com sucesso, aguarde nosso contato!");

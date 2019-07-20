@@ -573,6 +573,12 @@
 	</section>
 	<!-- End .\ Section de cadastro -->
 
+	<!-- Loading -->
+	<div id="loaderFundo">
+		<div id="loader"></div>
+		<div id="loaderText">Aguarde...</div>
+	</div>
+
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 
